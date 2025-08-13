@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>이메일 형식 검사</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 입력 필드와 결과 표시 요소 가져오기
+      const input = document.querySelector('input');
+      const p = document.querySelector('p');
+
+      // 이메일 형식 체크 함수
+      const isEmail = (value) => {
+        // @가 있고, @ 뒤에 .이 있는지 확인
+        if (!value.includes('@')) return false;
+        const parts = value.split('@');
+        if (parts.length !== 2) return false;
+        if (parts[0].length < 1) return false; // @ 앞 글자 없음
+        if (!parts[1].includes('.')) return false;
+        if (parts[1].split('.')[0].length < 1) return false; // . 앞 글자 없음
+        return true;
+      };
+
+      // 입력 이벤트 처리
+      input.addEventListener('keyup', (event) => {
+        const value = event.currentTarget.value.trim();
+        if (isEmail(value)) {
+          p.style.color = 'green';
+          p.textContent = `이메일 형식입니다: ${value}`;
+        } else {
+          p.style.color = 'red';
+          p.textContent = `이메일 형식이 아닙니다: ${value}`;
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <input type="text" placeholder="이메일 입력">
+  <h3>결과 표시</h3>
+  <p>여기에 결과가 표시됩니다.</p>
+</body>
+</html>

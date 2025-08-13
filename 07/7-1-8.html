@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 문서 객체 생성하기
+        const header = document.createElement('h1')
+
+        // 생성한 태그 조작하기
+        header.textContent = '동적 변경 된 h1 태그'
+        header.setAttribute('data-custom', '사용자 정의 속성')
+        header.style.color = 'yellow'
+        header.style.backgroundColor = 'red'
+        header.style.fontSize = '30px'
+
+        // h1 태그를 body 태그 아래에 추가하기
+        document.body.appendChild(header)
+      })
+    </script>
+  </head>
+  <body>
+      <h1>기존의 h1 태그</h1>
+  </body>
+</html>

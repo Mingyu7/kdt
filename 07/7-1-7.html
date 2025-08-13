@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const divs = document.querySelectorAll('body > div')
+
+        divs.forEach((div, index) => {
+          console.log(div, index)
+          const val1 = index * 10
+          const val2 = index * 15
+          const val3 = index * 20
+          div.style.height = `10px`
+          div.style.backgroundColor = `rgb(${val1}, ${val2}, ${val3})`
+          
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <!-- div 태그 25개 -->
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+  </body>
+</html>

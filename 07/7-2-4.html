@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>파운드 ↔ 킬로그램 변환기</title>
+ 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const input = document.querySelector('input');
+      const unitSelect = document.querySelector('select');
+      const button = document.querySelector('button');
+      const p = document.querySelector('p');
+      p.style.color = 'red';
+      p.style.fontSize = '20px';
+      p.style.backgroundColor = 'lightyellow';
+      p.style.padding = '5px 10px'; // 글자 주변 여백
+      p.style.display = 'inline-block'; // 배경 크기를 글자 길이에 맞춤
+
+
+      button.addEventListener('click', () => {
+        const value = Number(input.value);
+
+        if (isNaN(value)) {
+          p.textContent = '숫자를 입력해주세요';
+          return;
+        }
+
+        let result = 0;
+        if (unitSelect.value === 'lbToKg') {
+          result = value * 0.453592; // 1 lb = 0.453592 kg
+          p.textContent = `${result.toFixed(2)} kg`;
+        } else {
+          result = value / 0.453592; // 1 kg = 2.20462 lb
+          p.textContent = `${result.toFixed(2)} lb`;
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="converter">
+    <h2>무게 변환기</h2>
+    <input type="text" placeholder="값 입력">
+    <select>
+      <option value="lbToKg">파운드 → 킬로그램</option>
+      <option value="kgToLb">킬로그램 → 파운드</option>
+    </select>
+    <button>계산</button><br> 
+    결과 : <p></p>
+  </div>
+</body>
+</html>
